@@ -6,4 +6,4 @@ sidebar_position: 6
 
 ## Trello Board
 
-The OpenAIRE Login roadmap is available in the [OpenAIRE Login Trello Board](https://trello.com/b/ar92Ndca/openaire-login).
+The OpenAIRE AAI roadmap is available in the [OpenAIRE AAI Trello Board](https://trello.com/b/ar92Ndca/openaire-login).
