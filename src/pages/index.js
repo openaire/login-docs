@@ -9,11 +9,11 @@ function HomepageGreeting() {
   return (
     <div className={clsx('col col--12')}>
       <div className="text--center">
-        <img className={clsx('logo-full')} src="img/openaire-login-logo.jpg" alt="OpenAIRE Login Logo (Full)"/>
+        <img className={clsx('logo-full')} src="img/openaire-aai-logo.jpg" alt="OpenAIRE AAI Logo"/>
       </div>
       <div className="text--center padding-horiz--md">
         <p>
-        OpenAIRE Login is an authentication and authorisation platform that enables
+        OpenAIRE AAI is an authentication and authorisation platform that enables
         researchers to securely access and share common resources and services
         using their existing academic or social identities.
         </p>
@@ -23,7 +23,7 @@ function HomepageGreeting() {
           className="button button--secondary button--lg"
           to="/docs/overview"
         >
-          Learn More
+          Documentation
         </Link>
       </div>
     </div>
@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="OpenAIRE Login Documentation"
+      description="OpenAIRE AAI Documentation"
     >
       <main>
         <HomepageGreeting />
