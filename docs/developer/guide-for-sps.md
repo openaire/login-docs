@@ -1023,16 +1023,16 @@ connected to OpenAIRE AAI.
 
 |          attribute name | User Identifier
 | ----------------------: | :---------------------------------------------------------------------------------------- |
-|         **description** | A globally unique, opaque, persistent and non-reassignable identifier for the user. For users whose community identity is managed by the OpenAIRE AAI, this identifier is of the form `<uniqueID>@openaire.eu`. The `<uniqueID>` portion is an opaque identifier issued by the OpenAIRE AAI. |
-|   **SAML Attribute(s)** | <ul><li>`urn:oid:1.3.6.1.4.1.25178.4.1.6` (voPersonID)</li><li>`1.3.6.1.4.1.5923.1.1.1.13` (eduPersonUniqueId)</li></ul> |
-|          **OIDC scope** | <ul><li>`voperson_id`</li><li>`openid`</li></ul>                                          |
-|       **OIDC claim(s)** | <ul><li>`voperson_id`</li><li>`sub`</li></ul>                                             |
+|         **description** | A globally unique, opaque, persistent and non-reassignable identifier for the user. For users whose community identity is managed by the OpenAIRE AAI, this identifier is of the form `<uniqueID>@openaire.eu`, where the `<uniqueID>` portion is an opaque identifier issued by the OpenAIRE AAI. |
+|   **SAML Attribute(s)** | <ul><li>`urn:oid:1.3.6.1.4.1.25178.4.1.6` (`voPersonID`)</li><li>`1.3.6.1.4.1.5923.1.1.1.13` (`eduPersonUniqueId`)</li></ul> |
+|          **OIDC scope** | <ul><li>`voperson_id`</li><li>`aarc`</li></ul> |
+|       **OIDC claim(s)** | <ul><li>`voperson_id`</li><li>`sub`</li></ul> |
 | **OIDC claim location** | <ul><li>ID token</li><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>       |
 |              **origin** | The User Identifier is assigned by the OpenAIRE AAI or an external AAI service managing the community identity of the user |
 |             **changes** | No                                                                                        |
 |        **multiplicity** | No                                                                                        |
 |        **availability** | Always                                                                                    |
-|             **example** | _ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@aai.openaire.eu_        |
+|             **example** | `75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@aai.openaire.eu` |
 |               **notes** | Use the User Identifier within your application as the unique identifier key for the user |
 |              **status** | Stable                                                                                    |
 
@@ -1040,54 +1040,66 @@ connected to OpenAIRE AAI.
 
 ### 2. Display Name
 
-|          attribute name | Display Name                                      |
-| ----------------------: | :------------------------------------------------ |
-|         **description** | The user's full name, in a displayable form       |
-|   **SAML Attribute(s)** | `urn:oid:2.16.840.1.113730.3.1.241` (displayName) |
-|          **OIDC scope** | `profile`                                         |
-|       **OIDC claim(s)** | `name`                                            |
-| **OIDC claim location** | Userinfo endpoint                                 |
-|              **origin** | Provided by user's Identity Provider              |
-|             **changes** | Yes                                               |
-|        **multiplicity** | Single-valued                                     |
-|        **availability** | Always                                            |
-|             **example** | _John Doe_                                        |
-|               **notes** | -                                                 |
-|              **status** | Stable                                            |
+<!-- markdownlint-disable line-length no-inline-html -->
+
+|          attribute name | Display Name                                                       |
+| ----------------------: | :----------------------------------------------------------------- |
+|         **description** | The user's full name, in a displayable form                        |
+|   **SAML Attribute(s)** | `urn:oid:2.16.840.1.113730.3.1.241` (`displayName`)                |
+|          **OIDC scope** | <ul><li>`profile`</li><li>`aarc`</li></ul>                         |
+|       **OIDC claim(s)** | `name`                                                             |
+| **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul> |
+|              **origin** | Provided by the user's Identity Provider                           |
+|             **changes** | Yes                                                                |
+|        **multiplicity** | Single-valued                                                      |
+|        **availability** | Always                                                             |
+|             **example** | `John Doe`                                                         |
+|               **notes** | -                                                                  |
+|              **status** | Stable                                                             |
+
+<!-- markdownlint-enable line-length no-inline-html -->
 
 ### 3. Given Name
 
-|          attribute name | Given Name                           |
-| ----------------------: | :----------------------------------- |
-|         **description** | The user's first name                |
-|   **SAML Attribute(s)** | `urn:oid:2.5.4.42` (givenName)       |
-|          **OIDC scope** | `profile`                            |
-|       **OIDC claim(s)** | `given_name`                         |
-| **OIDC claim location** | Userinfo endpoint                    |
-|              **origin** | Provided by user's Identity Provider |
-|             **changes** | Yes                                  |
-|        **multiplicity** | Single-valued                        |
-|        **availability** | Always                               |
-|             **example** | _John_                               |
-|               **notes** | -                                    |
-|              **status** | Stable                               |
+<!-- markdownlint-disable line-length no-inline-html -->
+
+|          attribute name | Given Name                                                         |
+| ----------------------: | :----------------------------------------------------------------- |
+|         **description** | The user's first name                                              |
+|   **SAML Attribute(s)** | `urn:oid:2.5.4.42` (`givenName`)                                   |
+|          **OIDC scope** | <ul><li>`profile`</li><li>`aarc`</li></ul>                         |
+|       **OIDC claim(s)** | `given_name`                                                       |
+| **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul> |
+|              **origin** | Provided by the user's Identity Provider                           |
+|             **changes** | Yes                                                                |
+|        **multiplicity** | Single-valued                                                      |
+|        **availability** | Always                                                             |
+|             **example** | `John`                                                             |
+|               **notes** | -                                                                  |
+|              **status** | Stable                                                             |
+
+<!-- markdownlint-enable line-length no-inline-html -->
 
 ### 4. Family Name
 
-|          attribute name | Family Name                          |
-| ----------------------: | :----------------------------------- |
-|         **description** | The user's last name                 |
-|   **SAML Attribute(s)** | `urn:oid:2.5.4.4` (sn)               |
-|          **OIDC scope** | `profile`                            |
-|       **OIDC claim(s)** | `family_name`                        |
-| **OIDC claim location** | Userinfo endpoint                    |
-|              **origin** | Provided by user's Identity Provider |
-|             **changes** | Yes                                  |
-|        **multiplicity** | Single-valued                        |
-|        **availability** | Always                               |
-|             **example** | _Doe_                                |
-|               **notes** | -                                    |
-|              **status** | Stable                               |
+<!-- markdownlint-disable line-length no-inline-html -->
+
+|          attribute name | Family Name                                                        |
+| ----------------------: | :----------------------------------------------------------------- |
+|         **description** | The user's last name                                               |
+|   **SAML Attribute(s)** | `urn:oid:2.5.4.4` (`sn`)                                           |
+|          **OIDC scope** | <ul><li>`profile`</li><li>`aarc`</li></ul>                         |
+|       **OIDC claim(s)** | `family_name`                                                      |
+| **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul> |
+|              **origin** | Provided by the user's Identity Provider                           |
+|             **changes** | Yes                                                                |
+|        **multiplicity** | Single-valued                                                      |
+|        **availability** | Always                                                             |
+|             **example** | `Doe`                                                              |
+|               **notes** | -                                                                  |
+|              **status** | Stable                                                             |
+
+<!-- markdownlint-enable line-length no-inline-html -->
 
 ### 5. Email Address
 
@@ -1096,15 +1108,15 @@ connected to OpenAIRE AAI.
 |          attribute name | Email Address                                                               |
 | ----------------------: | :-------------------------------------------------------------------------- |
 |         **description** | The user's email address                                                    |
-|   **SAML Attribute(s)** | `urn:oid:0.9.2342.19200300.100.1.3` (mail)                                  |
-|          **OIDC scope** | `email`                                                                     |
+|   **SAML Attribute(s)** | `urn:oid:0.9.2342.19200300.100.1.3` (`mail`)                                |
+|          **OIDC scope** | <ul><li>`email`</li><li>`aarc`</li></ul>                                    |
 |       **OIDC claim(s)** | `email`                                                                     |
 | **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>          |
-|              **origin** | Provided by user's Identity Provider                                        |
+|              **origin** | Provided by the user's Identity Provider or supplied by the user during registration |
 |             **changes** | Yes                                                                         |
 |        **multiplicity** | Single-valued                                                               |
 |        **availability** | Always                                                                      |
-|             **example** | _john.doe@example.org_                                                      |
+|             **example** | `john.doe@example.org`                                                      |
 |               **notes** | This **MAY NOT** be unique and is **NOT** suitable for use as a primary key |
 |              **status** | Stable                                                                      |
 
@@ -1118,14 +1130,14 @@ connected to OpenAIRE AAI.
 | ----------------------: | :------------------------------------------------------------------ |
 |         **description** | True if the user's email address has been verified; otherwise false |
 |   **SAML Attribute(s)** | -                                                                   |
-|          **OIDC scope** | `email`                                                             |
+|          **OIDC scope** | <ul><li>`email`</li><li>`aarc`</li></ul>                            |
 |       **OIDC claim(s)** | `email_verified`                                                    |
 | **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>  |
-|              **origin** | OpenAIRE AAI assigns this attribute on user registration            |
+|              **origin** | Provided by the user's Identity Provider or by the OpenAIRE AAI following email address verification |
 |             **changes** | Yes                                                                 |
 |        **multiplicity** | Single-valued                                                       |
 |        **availability** | Always                                                              |
-|             **example** | _true_                                                              |
+|             **example** | `true`                                                              |
 |               **notes** | This claim is available only in OpenID Connect                      |
 |              **status** | Stable                                                              |
 
@@ -1142,7 +1154,7 @@ connected to OpenAIRE AAI.
 |          **OIDC scope** | <ul><li>`voperson_external_affiliation`<ul><li>`aarc`</li></ul>          |
 |       **OIDC claim(s)** | `voperson_external_affiliation`                                          |
 | **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>       |
-|              **origin** | The user's identity provider                                             |
+|              **origin** | Provided by the user's Identity Provider                                 |
 |             **changes** | Yes                                                                      |
 |        **multiplicity** | Multi-valued                                                             |
 |        **availability** | Only when provided by the user's identity provider                       |
@@ -1159,7 +1171,7 @@ connected to OpenAIRE AAI.
 |          attribute name | Groups                                                                       |
 | ----------------------: | :--------------------------------------------------------------------------- |
 |         **description** | The user's group/VO membership/role information expressed as entitlements    |
-|   **SAML Attribute(s)** | `urn:oid:1.3.6.1.4.1.5923.1.1.1.7` (eduPersonEntitlement)                    |
+|   **SAML Attribute(s)** | `urn:oid:1.3.6.1.4.1.5923.1.1.1.7` (`eduPersonEntitlement`)                  |
 |          **OIDC scope** | `eduperson_entitlement`                                                      |
 |       **OIDC claim(s)** | `eduperson_entitlement`                                                      |
 | **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>           |
@@ -1167,7 +1179,7 @@ connected to OpenAIRE AAI.
 |             **changes** | Yes                                                                          |
 |        **multiplicity** | Multi-valued                                                                 |
 |        **availability** | Not always                                                                   |
-|             **example** | _urn:mace:example.org:group:vo.example.org:role=vm_operator#aai.openaire.eu_ |
+|             **example** | `urn:mace:example.org:group:vo.example.org:role=vm_operator#aai.openaire.eu` |
 |               **notes** | -                                                                            |
 |              **status** | Stable                                                                       |
 
