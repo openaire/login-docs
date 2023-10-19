@@ -259,12 +259,13 @@ UserInfo Endpoint:
 
 | Scope                   | Claims                                                              |
 | ----------------------- | ------------------------------------------------------------------- |
-| `openid`                | `sub`                                                               |
-| `voperson_id`           | `voperson_id`                                                       |
-| `profile`               | <ul><li>`name`</li><li>`given_name`</li><li>`family_name`</li></ul> |
-| `email`                 | <ul><li>`email`</li><li>`email_verified`</li></ul>                  |
-| `eduperson_entitlement` | `eduperson_entitlement`                                             |
-| `orcid`                 | `orcid`                                                             |
+| `openid`                | User Identifier (`sub`)                                             |
+| `voperson_id`           | User Identifier (`voperson_id`)                                     |
+| `profile`               | <ul><li>Display Name (`name`)</li><li>Given Name (`given_name`)</li><li>Family Name (`family_name`)</li></ul>                                       |
+| `email`                 | <ul><li>Email Address (`email`)</li><li>Email Verification Status (`email_verified`)</li></ul> |
+| `eduperson_entitlement` | Groups (`eduperson_entitlement`)                                    |
+| `voperson_external_affiliation` | Affiliation (`voperson_external_affiliation`)               |
+| `orcid`                 | ORCID iD (`orcid`)                                                  |
 
 <!-- markdownlint-enable line-length no-inline-html -->
 
@@ -1151,7 +1152,7 @@ connected to OpenAIRE AAI.
 | ----------------------: | :----------------------------------------------------------------------- |
 |         **description** | The user's affiliation(s) within a particular security domain (scope)    |
 |   **SAML Attribute(s)** | `urn:oid:1.3.6.1.4.1.25178.4.1.11` (`voPersonExternalAffiliation`)       |
-|          **OIDC scope** | <ul><li>`voperson_external_affiliation`<ul><li>`aarc`</li></ul>          |
+|          **OIDC scope** | <ul><li>`voperson_external_affiliation`</li><li>`aarc`</li></ul>          |
 |       **OIDC claim(s)** | `voperson_external_affiliation`                                          |
 | **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>       |
 |              **origin** | Provided by the user's Identity Provider                                 |
@@ -1185,6 +1186,26 @@ connected to OpenAIRE AAI.
 
 <!-- markdownlint-enable line-length no-inline-html -->
 
+### 10. ORCID iD
+
+<!-- markdownlint-disable line-length no-inline-html -->
+
+|          attribute name | ORCID iD                                        |
+| ----------------------: | :---------------------------------------------- |
+|         **description** | The user's ORCID iD                             |
+|   **SAML Attribute(s)** | `urn:oid:1.3.6.1.4.1.5923.1.1.1.16` (`eduPersonOrcid`)                                                                          |
+|          **OIDC scope** | `orcid`                                         |
+|       **OIDC claim(s)** | `orcid`                                         |
+| **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>                                                              |
+|              **origin** | ORCID Identity Provider                         |
+|             **changes** | No                                              |
+|        **multiplicity** | Single-valued                                   |
+|        **availability** | Not always                                      |
+|             **example** | `https://orcid.org/XXXX-XXXX-XXXX-XXXX`         |
+|               **notes** | Available when user logs in using ORCID or when provided by the user's Identity Provider                                        |
+|              **status** | Experimental                                    |
+
+<!-- markdownlint-enable line-length no-inline-html -->
 ## User authorisation
 
 The following information about the authenticated user can be provided by
