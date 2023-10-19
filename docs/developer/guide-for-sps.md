@@ -1137,17 +1137,17 @@ connected to OpenAIRE AAI.
 
 |          attribute name | Affiliation                                                              |
 | ----------------------: | :----------------------------------------------------------------------- |
-|         **description** | The user's affiliation within a particular security domain (scope)       |
-|   **SAML Attribute(s)** | `urn:oid:1.3.6.1.4.1.5923.1.1.1.9` (eduPersonScopedAffiliation)          |
-|          **OIDC scope** | -                                                                        |
-|       **OIDC claim(s)** | -                                                                        |
+|         **description** | The user's affiliation(s) within a particular security domain (scope)    |
+|   **SAML Attribute(s)** | `urn:oid:1.3.6.1.4.1.25178.4.1.11` (`voPersonExternalAffiliation`)       |
+|          **OIDC scope** | <ul><li>`voperson_external_affiliation`<ul><li>`aarc`</li></ul>          |
+|       **OIDC claim(s)** | `voperson_external_affiliation`                                          |
 | **OIDC claim location** | <ul><li>Userinfo endpoint</li><li>Introspection endpoint</li></ul>       |
-|              **origin** | OpenAIRE AAI assigns this attribute on user registration                 |
+|              **origin** | The user's identity provider                                             |
 |             **changes** | Yes                                                                      |
 |        **multiplicity** | Multi-valued                                                             |
-|        **availability** | Always                                                                   |
-|             **example** | _member@example.org_                                                     |
-|               **notes** | Service Providers are encouraged to validate the scope of this attribute |
+|        **availability** | Only when provided by the user's identity provider                       |
+|             **example** | `member@example.org`                                                     |
+|               **notes** | The `voperson_external_affiliation` claim is multi-valued, so it is always returned as an array in the UserInfo response. |
 |              **status** | Stable                                                                   |
 
 <!-- markdownlint-enable line-length no-inline-html -->
