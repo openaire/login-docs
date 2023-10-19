@@ -706,23 +706,26 @@ specification where the logout starts by redirecting the user to a specific
 endpoint at the OpenID Provider.
 
 This endpoint is normally obtained via the `end_session_endpoint` element of the
-OP's Configuration page and the parameters that are used in the logout request
-at the Logout Endpoint are defined below:
+OP's Configuration page. Parameters used in the logout request are detailed
+below:
 
-- `id_token_hint`: ID Token previously issued by the OP to the Relying Party
-  passed to the Logout Endpoint as a hint about the end user's current
-  authenticated session with the Client. This is used as an indication of the
-  identity of the end user that the RP is requesting be logged out by the OP.
-- `client_id`: OAuth 2.0 Client Identifier valid at the Authorization Server.
-  This parameter is needed to specify the Client Identifier when
-  `post_logout_redirect_uri` is used but `id_token_hint` is not. Using this
-  parameter, a confirmation dialog will be presented to the end user.
+- `id_token_hint`: The ID Token previously issued by the OpenAIRE AAI OP to
+  your Relying Party (RP) and provided to the Logout Endpoint as a hint
+  regarding the end user’s current authenticated session with the client. It
+  indicates the identity of the end user that the RP is requesting the
+  OpenAIRE AAI to log out. If the `id_token_hint` parameter is omitted, the
+  user may be prompted to confirm the logout.
+- `client_id`: This parameter is used to specify the Client Identifier when
+  `post_logout_redirect_uri` is specified but `id_token_hint` is not.
 - `post_logout_redirect_uri`: URI to which the RP is requesting that the end
-  user's browser be redirected after a logout has been performed. This URI
-  should use the HTTPS scheme and the value must have been previously registered
-  in the client configuration. Note that you need
-  to include either the `client_id` or `id_token_hint` parameter in case the
-  `post_logout_redirect_uri` is included.
+   user’s browser be redirected after a logout has been performed. This URI
+   should use the `HTTPS` scheme and the value must have been previously
+   registered in the configuration of the client in the OpenAIRE AAI. Note
+   that you need to include either the `client_id` or `id_token_hint`
+   parameter in case the `post_logout_redirect_uri` is included.
+
+You can use either `HTTP GET` or `HTTP POST` to send the logout request to
+the Logout Endpoint.
 
 ##### Example Requests
 
