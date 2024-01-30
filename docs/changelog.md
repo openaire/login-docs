@@ -8,6 +8,36 @@ All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## 2023-12-18
+
+### Added
+
+- Regex support for the execution of user attribute based conditions in Keycloak
+
+### Fixed
+
+- Issue with SAML federated IdP logout.
+- Issue where setting "Client Signature Required" to `true` also required `AuthnRequestsSigned` to be `true`
+- Issue with the refresh flow involving the scope parameter
+- Problem with the auto update schedule task getting stuck
+- Ensure execution config is not duplicated when copying a Keycloak authentication flow
+
+## 2023-07-11
+
+### Added
+
+- Support for using `POST` for OIDC RP-Initiated Logout
+
+### Changed
+
+- Enhance login events to include `voPersonID` information
+
+## 2023-05-23
+
+### Added
+
+- Support for synchronising entitlements managed in COmanage Registry with Keycloak
+
 ## 2023-03-24
 
 ### Added
