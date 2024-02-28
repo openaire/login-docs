@@ -61,12 +61,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'left',
             label: 'Developer',
           },
-          // {
-          //   type: 'doc',
-          //   docId: 'glossary',
-          //   position: 'left',
-          //   label: 'Glossary',
-          // },
+          {
+             type: 'doc',
+             docId: 'glossary',
+             position: 'left',
+             label: 'Glossary',
+          },
           // {
           //   type: 'doc',
           //   docId: 'features',
